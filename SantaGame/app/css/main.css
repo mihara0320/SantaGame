@@ -1,0 +1,27 @@
+/* Space out content a bit */
+body {
+  margin:;
+  padding: 0;
+  background-color: #ddddde;
+  position: auto;
+  left: 10%;
+  top: 10%;
+}
+
+h1{
+  font-family: Copperplate, "Copperplate Gothic Light", fantasy;
+	font-size: 40px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 26.4px;
+}
+
+h3{
+  font-family: Copperplate, "Copperplate Gothic Light", fantasy;
+  font-size: 24px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 500;
+  line-height: 26.4px;
+}

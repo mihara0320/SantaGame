@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+
+	<title>Snake Game</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.2.2/pixi.min.js"></script>
+	<script src ="js/Player.js"></script>
+	<script src="js/Field.js"></script>
+	<script src="js/Drawing.js"></script>
+	<script src="js/Snake.js"></script>
+
+</head>
+
+<body>
+  <h1>Santa Game</h1>
+	<h3>Collect chest boxes to buy more presernts</h3>
+	<h3>Press any arrow keys to start, any other keys to pause!</h3>
+  <script type="text/javascript">
+
+	var renderer = PIXI.autoDetectRenderer(1000, 576, {backgroundColor : 0x222222});
+	document.body.appendChild(renderer.view);
+
+	var field = new Field();
+	field.init();
+	var snake = new Snake();
+	snake.init();
+	var drawing = new Drawing();
+	drawing.init();
+	var player = new Player();
+
+	function update(){
+		if (field.endFlag != true){
+			drawing.update();
+			field.setTresure();
+			field.judge();
+		} else {
+			console.log("GAMEOVER");
+			drawing.DisplayGameOver();
+		}
+		drawing.reloadAnimate();
+		renderer.render(drawing.stage);
+	}
+
+	setInterval(update, snake.movingSpeed);
+
+  </script>
+
+</body>
+
+</html>
