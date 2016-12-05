@@ -1,30 +1,27 @@
-
-
-
 var Snake = function (){
   this.tailLength = 3;
   this.movingSpeed = 200;
-
-  this.currentRow = pixelConv(gridSize.rows) / 2;
-  this.currentCol = pixelConv(gridSize.cols) / 2;
-  this.pointerRow = this.currentRow;
-  this.pointerCol = this.currentCol;
+  // Starrting position of snakeHead
+  this.currentRow;
+  this.currentCol;
+  this.pointerRow;
+  this.pointerCol;
 }
-
+// Draws lataest status of snake
 Snake.prototype.update = function () {
   Snake.prototype.controlHead(player.keyDirection);
   drawing.head.position.y = snake.currentRow;
   drawing.head.position.x = snake.currentCol;
   drawing.stage.addChild(drawing.head);
 };
-
+// Initializes snake's starting position
 Snake.prototype.init = function () {
   snake.currentRow = pixelConv(gridSize.rows) / 2;
   snake.currentCol = pixelConv(gridSize.cols) / 2;
   snake.pointerRow = snake.currentRow;
   snake.pointerCol = snake.currentCol;
 };
-
+// Changes snakeHead's position depending on arrow key input
 Snake.prototype.controlHead = function (keyDirection) {
   snake.pointerCol = snake.currentCol;
   snake.pointerRow = snake.currentRow;
@@ -52,14 +49,9 @@ Snake.prototype.controlHead = function (keyDirection) {
   }
 };
 
-
 Snake.prototype.eatTresure = function () {
   field.setNextTresure = true;
   field.score += 100;
   snake.tailLength ++;
   snake.movingSpeed -= 5;
 };
-
-function genRandomNum(){
-  return Math.floor(Math.random() * 3);
-}
